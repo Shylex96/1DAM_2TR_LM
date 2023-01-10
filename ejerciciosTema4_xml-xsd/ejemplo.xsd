@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Debe iniciar de la misma forma que en los .dtd -->
+<!-- El xsd sustituye al anterior dtd y lo que hace es definir el xml-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name="persona">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element name="nombre" type="xs:string" minOccurs="0" maxOccurs="1"></xs:element>
+            <xs:element name="apellidos" type="xs:string"></xs:element>
+            <xs:element name="fecha_nacimiento">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="dia" type="xs:integer" default="1"></xs:element>
+                        <xs:element name="mes" type="xs:integer" default="1"></xs:element>
+                        <xs:element name="año">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:integer">  
+                                <xs:minInclusive value="1990"></xs:minInclusive>
+                                <xs:maxInclusive value="2023"></xs:maxInclusive>
+                            </xs:restriction>
+                        </xs:simpleType>
+                        </xs:element>
+
+                        <xs:element name="diaSemana">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:enumeration value="Lunes"></xs:enumeration>
+                                    <xs:enumeration value="Martes"></xs:enumeration>
+                                    <xs:enumeration value="Miércoles"></xs:enumeration>
+                                    <xs:enumeration value="Jueves"></xs:enumeration>
+                                    <xs:enumeration value="Viernes"></xs:enumeration>
+                                    <xs:enumeration value="Sábado"></xs:enumeration>
+                                    <xs:enumeration value="Domingo"></xs:enumeration>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element ref="direccion"></xs:element>
+            <xs:element name="dni">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="[0-9]{8}[A-Z]"></xs:pattern>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="edad">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:integer">
+                            <xs:attribute name="nacionalidad" type="xs:string" use="required"></xs:attribute>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+<xs:element name="direccion">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element name="calle" type="xs:string"></xs:element>
+            <xs:element name="cp" type="xs:string"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+</xs:schema>
+
+
+
+<!-- Línea 4: 'xs' no importa realmente pero se estandariza así -->
+<!-- Línea 4: ':schema' es un estándar y siempre va así -->
+<!-- Línea 4: xmlns significa xml name space -->
+<!-- Línea 4: Seguido de la URL que hace referencia al esquema -->
+
+<!-- Si tenemos elementos complejos debemos de cerrarlo con la etiqueta; sino con /> nos sirve -->
+<!-- Línea 7: Con 'sequence' estamos indicando que deben de aparecer los siguientes elementos y en ese orden -->
+<!-- Línea 7: Si por el contrario usáramos 'choice' indicaríamos que elegiría 1 de todos -->
+<!-- Línea 7: Así mismo, podríamos usar 'all', en el que deben de aparecer todos independientemente del orden -->
+
+<!-- Por otro lado tenemos minOccurs="" y maxOccurs="" para definir el min y el max que pueden aparecer -->
+<!-- Con 'unbounded' definimos infinitas veces-->
+<!-- Con 'default' ponemos un valor por defecto para que en caso de que en el .xml lo dejáramos vacío tome ese valor predeterminado -->
+<!-- Con 'fixed' decimos que el valor fijo debe de ser '2000' porque es el que hemos declarado -->
+<!-- Con minInclusive y maxInclusive especificamos que valores mínimos y máximos -->
+<!-- Con totalDigits definimos el máximo de dígitos (incluyendo decimales) -->
+<!-- Con fractionDigits definimos el máximo de decimales -->
+
+<!-- En la línea 40 estamos declarando el elemento dirección y referenciándolo pero no es hasta la línea 44 que la definimos a parte-->
+
+<!-- En la línea 41: Para un pattern debemos de validar un DNI:
+    
+    Validación de un DNI: 
+    Que pueda elegir del 0 al 9, de un tamaño de 8 dígitos y debe de ir de la 'A' a la 'Z'mayus una letra.
+    [0-9]{8}[A-Z]$
+
+    El símbolo '$' indica el final de la línea y actúa como delimitador
+    para final de la cadena y/o principio de otra fórmula.
+
+    Para un NIE que tiene lo mismo que el DNI pero con una letra delante:
+    [A-Z][0-9]{8}[A-Z]
+-->

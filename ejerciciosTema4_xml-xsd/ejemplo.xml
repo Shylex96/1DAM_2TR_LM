@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="file.css" type="text/css"?>
+<persona xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="./ejemplo.xsd">
+    <nombre>Pedro</nombre>
+    <apellidos>Ortiz Pérez</apellidos>
+    <fecha_nacimiento>
+        <dia>15</dia>
+        <mes>04</mes>
+        <año>1996</año>
+        <diaSemana>Lunes</diaSemana>
+    </fecha_nacimiento>
+    <direccion>
+        <calle>C/ Principal nº 3</calle>
+        <cp>41000</cp>
+    </direccion>
+    <dni>00000000T</dni>
+    <edad nacionalidad="E">55</edad>
+</persona>
+
+
+<!-- Línea 3: xmlns:xsi es el mismo que en el .xsd pero con la 'i' de instancia -->

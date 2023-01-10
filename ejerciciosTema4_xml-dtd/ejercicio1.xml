@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE persona [
+
+<!ELEMENT persona (nombre, apellidos, correo, twitter)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT apellidos (#PCDATA)>
+<!ELEMENT correo (#PCDATA)>
+<!ELEMENT twitter (#PCDATA)>
+
+]>
+
+<persona>
+
+    <nombre>Jorge</nombre>
+    <apellidos>Rodríguez Gutiérrez</apellidos>
+    <correo>jorge@grupostudium.com</correo>
+    <twitter>@JorgeStudium</twitter>
+
+</persona>

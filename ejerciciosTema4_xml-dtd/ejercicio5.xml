@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE persona SYSTEM "./ejercicio5.dtd">
+
+
+<persona>
+
+    <nombre>Jorge</nombre>
+    <apellidos>Rodríguez Gutiérrez</apellidos>
+    <correo>jorge@grupostudium.com</correo>
+    <twitter>@JorgeStudium</twitter>
+
+</persona>

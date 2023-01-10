@@ -1,0 +1,5 @@
+<!ELEMENT persona (nombre, apellidos, correo, twitter)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT apellidos (#PCDATA)>
+<!ELEMENT correo (#PCDATA)>
+<!ELEMENT twitter (#PCDATA)>
