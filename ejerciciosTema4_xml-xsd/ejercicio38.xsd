@@ -8,19 +8,18 @@
                     <xs:sequence>
                         <xs:element name="nombre" type="xs:string"></xs:element>
                         <xs:element name="apellidos" type="xs:string"></xs:element>
-                        <xs:element name="telefono" type="telefono">
-                            
-                        </xs:element>
+                        <xs:element name="telefono" type="xs:integer"></xs:element>
                     </xs:sequence>
+                    <xs:attribute name="dni" use="required">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                                <xs:pattern value="[0-9]{8}[A-Z]"></xs:pattern>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
                 </xs:complexType>
             </xs:element>
         </xs:sequence>
     </xs:complexType>
 </xs:element>
-
-<xs:simpleType name="telefono">
-    <xs:restriction base="xs:integer">
-        <xs:pattern value="[0-9]{9}"></xs:pattern>
-    </xs:restriction>
-</xs:simpleType>
 </xs:schema>
