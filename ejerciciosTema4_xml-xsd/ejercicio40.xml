@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<libros xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="./ejercicio40.xsd">
+<libros xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="./ejercicio40.xsd">
 
     <libro>
         <titulo>El Quijote</titulo>
         <autores>
-        <autor>Miguel de Cervantes</autor>
+            <autor>Miguel de Cervantes</autor>
         </autores>
         <editorial>Anya</editorial>
         <descripcion>Burlas de las novelas de caballería</descripcion>
