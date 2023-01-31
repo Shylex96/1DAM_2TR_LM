@@ -23,3 +23,5 @@ Apartado 22: //asignatura[@id=//alumno[nombre="Luisa"]//asignatura/@codigo]/nomb
 Apartado 23: //alumno[.//asignatura/@codigo=//asignatura[nombre="Ingeniería del Software"]/@id]/apellido1/text()
 Apartado 24: //carrera[@id=//alumno[.//asignatura[@codigo=//asignatura[nombre="Tecnología de los Alimentos"]/@id]]//carrera/@codigo]/nombre/text()
 Apartado 25: //alumno[ not(.//carrera/@codigo=//carrera[subdirector]/@codigo)]/nombre/text()
+Apartado 26: //alumno[.//asignatura/@codigo=//asignatura[creditos_practicos=1.5]/@id and .//carrera/@codigo=//carrera[nombre="I.T. Informática"]/@id]/nombre/text()
+Apartado 27: //alumno[.//carrera/@codigo=//carrera[plan<2022]/@id]/nombre/text()
