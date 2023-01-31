@@ -1,0 +1,3 @@
+a)Nombre de la persona: //nombre/text()
+b) Año de nacimiento: //anio/text()
+c) Lista de teléfonos: //telefono/text()

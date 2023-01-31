@@ -1,0 +1,25 @@
+Apartado 1: /universidad/nombre/text()
+Apartado 2: /universidad/pais/text()
+Apartado 3: /universidad/carreras/carrera/nombre/text() | //carreras/carrera/nombre/text()
+Apartado 4: /universidad/carreras/carrera/plan | //carreras/carrera/plan/text()
+Apartado 5: //alumnos/alumno/nombre/text()
+Apartado 6: //carrera/@id
+Apartado 7: //carrera[@id="c01"]/text()/..
+Apartado 8: //carrera[@id="c02"]/centro/text()
+Apartado 9: //carrera[@id="c03"]/nombre/text()
+Apartado 10: //alumno[estudios/proyecto]/nombre/text()
+Apartado 11: //alumno/estudios/carrera/@codigo
+Apartado 12: //alumno[@beca]/(apellido1,apellido2,nombre)
+Apartado 13: //asignatura[@titulacion="c04"]/nombre/text()
+Apartado 14: //asignatura[trimestre=2]/nombre/text()
+Apartado 15: //asignatura[creditos_teoricos<=4]/nombre/text()
+Apartado 16: //alumno[last()]//carrera/@codigo
+Apartado 17: //alumno[sexo="Mujer"]//asignatura/@*
+Apartado 18: //alumno/estudios/asignaturas/asignatura[@codigo="a02"]/../../../nombre/text()
+Apartado 19: //estudios/carrera/@codigo
+Apartado 20: //alumno[sexo="Hombre"]/(apellido1, apellido2)
+Apartado 21: //carrera[@id="c01"]/nombre/text()
+Apartado 22: //asignatura[@id=//alumno[nombre="Luisa"]//asignatura/@codigo]/nombre/text()
+Apartado 23: //alumno[.//asignatura/@codigo=//asignatura[nombre="Ingeniería del Software"]/@id]/apellido1/text()
+Apartado 24: //carrera[@id=//alumno[.//asignatura[@codigo=//asignatura[nombre="Tecnología de los Alimentos"]/@id]]//carrera/@codigo]/nombre/text()
+Apartado 25: //alumno[ not(.//carrera/@codigo=//carrera[subdirector]/@codigo)]/nombre/text()

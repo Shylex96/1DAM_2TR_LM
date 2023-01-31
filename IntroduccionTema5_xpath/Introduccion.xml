@@ -1,0 +1,17 @@
+<!-- 
+
+https://www.freeformatter.com/xpath-tester.html#before-output
+
+Pero en XPath no sólo los elementos son nodos, en realidad hay siete tipos de
+nodos:
+1. Raíz
+2. Elemento
+3. Texto
+4. Atributo
+5. Comentario
+6. Instrucción de procesamiento
+7. Espacio de nombres
+
+Nosotros usaremos normalmente el nodo raíz, elemento, texto y atributo.
+
+-->
