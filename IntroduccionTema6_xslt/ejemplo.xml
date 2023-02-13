@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<biblioteca>
+	<libro>
+		<titulo>Los pilares de la tierra</titulo>
+		<autor>Ken Follet</autor>
+		<fechaPublicacion ano="1989"/>
+		<portada>pilares.jpg</portada>
+	</libro>
+	<libro>
+		<titulo>El señor de los anillos</titulo>
+		<autor>J.R.R. Tolkien</autor>
+		<fechaPublicacion ano="1954"/>
+		<portada>anillos.jpg</portada>
+	</libro>
+	<libro>
+		<titulo>¿Sueñan los androides con ovejas eléctricas?</titulo>
+		<autor>Philip K. Dick</autor>
+		<fechaPublicacion ano="1968"/>
+		<portada>ovejas.jpg</portada>
+	</libro>
+</biblioteca>
