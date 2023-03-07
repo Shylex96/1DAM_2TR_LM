@@ -1,0 +1,178 @@
+- Ejercicio 1:
+
+for $d in /bookstore/book/title/text()
+return <titulo>{$d}</titulo>
+
+- Ejercicio 2: (Sin ruta XPath)
+
+for $d in /bookstore/book
+where $d/price <= 30
+return $d
+
+- Ejercicio 2: (Con ruta XPath)
+
+for $d in //book[price<=30]
+return $d
+
+- Ejercicio 3: 
+
+for $d in /bookstore/book
+where $d/price <= 30
+return $d/title
+
+- Ejercicio 4:
+
+for $d in /bookstore/book
+where $d/price <= 30
+return <titulo>{$d/title/text()}</titulo>
+
+- Ejercicio 5:
+
+for $d in /bookstore/book
+where $d/year = 2005
+return <lib2005><titulo>{$d/title}, {$d/author}</titulo></lib2005>
+
+- Ejercicio 6: (Con for)
+
+for $d in /bookstore/book
+return <publicacion>{$d/year}</publicacion>
+
+- Ejercicio 6: (Con let)
+
+let $d := /bookstore/book
+return <publicacion>{$d/year}</publicacion>
+
+- Ejercicio 7:
+
+for $d in //book
+order by $d/category, $d/title
+return $d
+
+- Ejercicio 8:
+
+let $d := count(//book)
+return <total>{$d}</total>     
+
+- Ejercicio 9:
+
+let $total := count (/bookstore/book),
+    $titulos := (
+      for $libro in /bookstore/book/title 
+      return <titulo>{$libro/text()}</titulo>) 
+return 
+      <resultado>
+        {$titulos}
+        <total_libros>{$total}</total_libros>
+      </resultado>
+
+- Ejercicio 10:
+
+let $max := max(/bookstore/book/price), 
+    $min := min(/bookstore/book/price)
+return
+<resultado>
+  <max>{$max}</max>
+  <min>{$min}</min>
+</resultado>
+
+- Ejercicio 11:
+
+for $libro in /bookstore/book
+let $precio_iva := ($libro/price * 1.21)
+order by $precio_iva
+return 
+<libro>
+  <titulo>{$libro/title/text()}</titulo>
+  <precio>{$libro/price/text()} €</precio>
+  <precio_iva>{$precio_iva} €</precio_iva>
+</libro>
+
+- Ejercicio 12:
+
+let $libros := /bookstore/book
+return <total>{sum($libros/price)}</total>
+
+- Ejercicio 13:
+
+<libros>
+{
+  for $libro in /bookstore/book
+  return $libro/price
+}
+{
+  let $libros := /bookstore/book
+  return <total>{sum($libros/price)}</total>
+}
+</libros>
+
+- Ejercicio 14:
+
+for $libro in /bookstore/book
+return 
+  <libro>
+    {$libro/title}
+    <autores>{count($libro/author)}</autores>
+  </libro>
+
+- Ejercicio 15:
+
+for $libro in /bookstore/book
+return <libro>{$libro/title/text()} ({count($libro/author)})</libro>
+
+- Ejercicio 16:
+
+for $libro in /bookstore/book
+where ends-with($libro/year, "3")
+return $libro
+
+- Ejercicio 17:
+
+for $libro in /bookstore/book
+where starts-with($libro/@category, "C")
+return $libro
+
+for $libro in /bookstore/book[starts-with(@category, "C")]
+return $libro
+
+- Ejercicio 18:
+
+for $libro in /bookstore/book
+where contains(lower-case($libro/title), "x")
+order by $libro/title descending
+return $libro
+
+- Ejercicio 19:
+
+for $libro in /bookstore/book
+return 
+  <libro>
+    {$libro/title}
+    <length>{string-length($libro/title)}</length>
+  </libro>
+
+- Ejercicio 20:
+
+for $año in distinct-values(/bookstore/book/year)
+return <año>{$año}</año>
+
+- Ejercicio 21:
+
+for $autor in distinct-values(/bookstore/book/author)
+order by string-length($autor)
+return <autor>{$autor}</autor>
+
+- Ejercicio 22:
+
+<table>
+{
+  for $libro in /bookstore/book
+  return 
+    <tr>
+      <td>{$libro/title/text()}</td>
+    </tr>
+}
+</table>
+
+
+
+

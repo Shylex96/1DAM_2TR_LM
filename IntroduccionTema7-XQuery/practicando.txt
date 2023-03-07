@@ -1,0 +1,42 @@
+(: Validador: https://videlibri.de/cgi-bin/xidelcgi :)
+
+
+-- Según el XML "biblioteca.xml" de la plataforma y la página 11/15 del temario:
+
+
+for $d in doc(biblioteca.xml)/biblioteca/libros/libro/titulo
+return $d
+
+-- Cuando sólo devolvemos una cosa y no necesitamos evaluación no hace falta poner llaves {}
+-- Lo devuelve como si fuera un bucle.
+-- Al tener un validador no hace falta usar "doc(biblioteca.xml)" sino que escribiríamos directamente: /biblioteca/libros/libro/titulo
+
+RESULT FINAL DEL FOR:
+
+<titulos><titulo>Learning XML</titulo></titulos>
+<titulos><titulo>XML Imprescindible</titulo></titulos>
+<titulos><titulo>XML Schema</titulo></titulos>
+<titulos><titulo>XPath Essentials</titulo></titulos>
+<titulos><titulo>Beginning XSLT 2.0: Form Novice to Professional</titulo></titulos>
+<titulos><titulo>XQuery</titulo></titulos>
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+let $d:= /biblioteca/libros/libro/titulo
+return <titulos>{$d}</titulos>
+
+-- Lo devuelve como una sola variable.
+
+RESULT FINAL DEL LET:
+
+<titulos>
+  <titulo>Learning XML</titulo>
+  <titulo>XML Imprescindible</titulo>
+  <titulo>XML Schema</titulo>
+  <titulo>XPath Essentials</titulo>
+  <titulo>Beginning XSLT 2.0: Form Novice to Professional</titulo>
+  <titulo>XQuery</titulo>
+</titulos>
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+

@@ -1,0 +1,52 @@
+XQuery es un lenguaje diseñado para escribir consultas sobre colecciones de datos
+expresadas en XML y su principal función es extraer información de un conjunto de 
+datos organizados como un árbol de etiquetas XML.
+
+De la misma forma que en Bases de Datos usamos CRUD, aquí usaremos:
+
+FLWOR (pronunciado como en inglés: "flower")
+
+For -- crear las tuplas sobre las que se evalúa la sentencia -- Crea una única expresión para todo el XML [Puede no existir let si usamos for]
+Let -- crear las tuplas sobre las que se evalúa la sentencia -- Crea varias expresiones según se necesite [Puede no existir for si usamos let]
+Where -- Filtrar las tuplas (opcional: pero en caso de aparecer debe estar en este orden) [Y solo puede haber uno]
+Order -- Ordenar las tuplas (opacional: pero en caso de aparecer debe estar en este orden) [Por defecto es ascending] [Y solo puede haber uno]
+Return -- Transformar las tuplas
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+ESTRUCTURA EJEMPLO XML:
+
+<empresa>
+    <empleado>
+        <nombre></nombre>
+    </empleado>
+    <empleado>
+        <nombre></nombre>
+    </empleado>
+    <empleado>
+        <nombre></nombre>
+    </empleado>
+</empresa>
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+FOR & LET:
+
+FOR $d in //nombre : devolvería todos los nombres
+return {d}: devolvería todos los <nombre>datos</nombre> que existan.
+
+return nombres{d}: devolvería <nombres><nombre>datos</nombre></nombres>
+
+En cambio si usamos let --> let d:= //nombre
+return <nombres>{d}</nombres> :devolvería una única variable con todo el resultado: <nombres><nombre></nombre></nombres>
+
+FILTROS:
+
+For d in //nombre
+order d/nombre
+Where d="angel"
+return
+
+Concatenar y acceder a los datos:
+
+return {d/nombre{-}d/apellido}
+

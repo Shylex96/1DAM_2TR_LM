@@ -1,0 +1,11 @@
+for $t in doc("libros.xml")//libro
+for $e in doc("prestamos.xml")//entrada
+where $t/titulo = $e/titulo
+order by $e/prestamo/inicio
+return <prestamo>{ $t/titulo, $t/autor/*, $e/prestamo/inicio, $e/prestamo/devolucion}</prestamo>
+
+-- El símbolo = está diciendo "donde" o "y". Es decir, en esta expresión, en  el return estaríamos 
+diciendo sácame como resultado la unión donde en $t donde coincida titulo y que en $e coincida con 
+titulo. Entonces, de esta forma estaríamos uniendo dos XML distintos y sacaríamos lo que nos interesara.
+
+-- Podemos ponerle detrás del $ la letra que deseemos, al fin y al cabo es una variable.

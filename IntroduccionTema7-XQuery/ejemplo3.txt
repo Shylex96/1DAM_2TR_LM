@@ -1,0 +1,28 @@
+Ejemplo 3:
+
+for $d in /biblioteca/libros/libro
+return <libro>{$d/titulo, <autor>{$d/autor/nombre/text()} -/- {$d/autor/apellido/text()}</autor>}</libro>
+
+
+-- Cosas a tener en cuenta:
+
+    1. la etiqueta <autor></autor> es inventada por nosotros y le decimos en medio qué es lo que queremos. 
+    En este caso {$d/autor/nombre/text()} para que nos saque el nombre del autor (usando text() como en las expresiones XPath).
+
+    2. En medio de una expresión y otra he puesto "-/-" pero podremos escribir lo que deseemos. Parecido a cuando en la práctica 
+    anterior escribíamos a mano nosotros lo que queríamos para que tuviera algún guión o expresión.
+
+    3. La coma se usa para concatenar distintas expresiones. 
+
+
+    Resultado de la expresión:
+
+    <libro><titulo>Learning XML</titulo><autor>Erik T. -/- Ray</autor></libro>
+    <libro><titulo>XML Imprescindible</titulo><autor>Elliot RustyW. Scott -/- HaroldMeans</autor></libro>
+    <libro><titulo>XML Schema</titulo><autor>Eric -/- van der Vlist</autor></libro>
+    <libro><titulo>XPath Essentials</titulo><autor>Adrew -/- Watt</autor></libro>
+    <libro><titulo>Beginning XSLT 2.0: Form Novice to Professional</titulo><autor>Jeni -/- Tennison</autor></libro>
+    <libro><titulo>XQuery</titulo><autor>Priscilla -/- Walmsley</autor></libro>
+
+
+
